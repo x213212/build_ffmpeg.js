@@ -35,7 +35,7 @@ emconfigure ./configure --cc="emcc" \
 ```
 https://blog.csdn.net/xueyushenzhou/article/details/82856860
 
-# centos 7 gcc 升級
+# centos 7 gcc upgrade
 https://www.booolen.com/post/20190403_centos%E4%B8%8Bglibcxx_3.4.20%E7%9A%84%E9%97%AE%E9%A2%98/
 請按照他的版本完成升級到 7.2
 ![](https://i.imgur.com/tqEsrsg.png)
@@ -44,7 +44,7 @@ install too long...
 
 ![](https://i.imgur.com/UcaTiCE.png)
 
-# centos 7 版本切換
+# centos 7 change gcc version
 https://www.cnblogs.com/dj0325/p/8481092.html
 ```bash
 scl --list
@@ -76,7 +76,8 @@ make
 ```
 在下一個指令!!!!!!!!!!!!!!!
 ![](https://i.imgur.com/4iGe0Mz.png)
-誕生...
+
+~
 ![](https://i.imgur.com/w13jDtO.png)
 ![](https://i.imgur.com/Colvmec.png)
 
@@ -88,7 +89,7 @@ https://github.com/disoul/videoconverter.js/blob/master/build/ffmpeg_pre.js
 https://github.com/disoul/videoconverter.js/blob/master/build/ffmpeg_post.js
 好啦好啦，扯了这么多，终于万事俱备可以愉快的开始最后一步编译啦
 
-# Final Battle 編譯LLVM到WebAssmbly
+# Final Battle Compile LLVM to WebAssmbly
 这里使用的命令依旧是emcc，但是注意此时emcc的输入为LLVM bitcode，它将会调用emscriptem来将其编译到js (和第一步emcc的行为不同，因为输入格式不同，target也会不同)
 ```bash
 # 这里的ffmpeg是上一步编译输出的LLVM bitcode
@@ -116,7 +117,7 @@ emcc ffmpeg.bc -o ffmpeg.html -s TOTAL_MEMORY=33554432
 #開啟chrome 實驗wasm
 ![](https://i.imgur.com/gKKTZ0g.png)
 
-然後呢再加點html
+add some html
 index.html
 ```htmlmixed=
 <html>
