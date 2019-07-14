@@ -1,8 +1,10 @@
 ![](https://i.imgur.com/yUFRvAE.png)
 ![](https://i.imgur.com/7oeSCLz.png)
 #version
-emcc v1.38.38
-ffmpeg lest version[ffmpeg](https://github.com/FFmpeg/FFmpeg.git)
+* emcc v1.38.38
+* ffmpeg lest version
+
+[ffmpeg](https://github.com/FFmpeg/FFmpeg.git)
 #script
 ```
 此版本編譯為
