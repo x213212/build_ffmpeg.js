@@ -15,12 +15,14 @@ emconfigure ./configure --cc="emcc" \
 --disable-parsers --disable-bsfs --disable-debug --disable-protocols \
 --disable-indevs --disable-outdevs --enable-protocol=file --enable-protocol=rtmp --enable-protocol=pipe \
 --enable-network --enable-protocol=tcp --enable-demuxer=rtsp --enable-decoder=h264 --enable-encoder=libx264 \
---enable-demuxer=flv \
-```
+--enable-demuxer=flv 
 
 emcc -s ASSERTIONS=1 -s VERBOSE=1 -s TOTAL_MEMORY=33554432 \
 -s ALLOW_MEMORY_GROWTH=1 -s WASM=1 -O2 -v ffmpeg.bc \
 -o ../ffmpeg.js --pre-js ./pre.js --post-js ./post.js
+```
+
+
 
 
 # Build ffmpeg to wasm
