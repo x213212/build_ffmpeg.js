@@ -4,7 +4,7 @@
 emcc v1.38.38
 ffmpeg lest version[ffmpeg](https://github.com/FFmpeg/FFmpeg.git)
 
-# bulid ffmpeg to wasm
+# Build ffmpeg to wasm
 ```
 git clone https://github.com/juj/emsdk && cd emsdk 
 ./emsdk install sdk-incoming-64bit binaryen-master-64bit 
