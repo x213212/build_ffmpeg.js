@@ -3,6 +3,25 @@
 #version
 emcc v1.38.38
 ffmpeg lest version[ffmpeg](https://github.com/FFmpeg/FFmpeg.git)
+#script
+```
+此版本編譯為
+CPPFLAGS="-D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600" \
+emconfigure ./configure --cc="emcc" \
+--prefix=$(pwd)/../dist --enable-cross-compile --target-os=none --arch=x86_64 \
+--cpu=generic --disable-ffplay --disable-ffprobe  \
+--disable-asm --disable-doc --disable-devices --disable-pthreads \
+--disable-w32threads  --disable-hwaccels \
+--disable-parsers --disable-bsfs --disable-debug --disable-protocols \
+--disable-indevs --disable-outdevs --enable-protocol=file --enable-protocol=rtmp --enable-protocol=pipe \
+--enable-network --enable-protocol=tcp --enable-demuxer=rtsp --enable-decoder=h264 --enable-encoder=libx264 \
+--enable-demuxer=flv \
+```
+
+emcc -s ASSERTIONS=1 -s VERBOSE=1 -s TOTAL_MEMORY=33554432 \
+-s ALLOW_MEMORY_GROWTH=1 -s WASM=1 -O2 -v ffmpeg.bc \
+-o ../ffmpeg.js --pre-js ./pre.js --post-js ./post.js
+
 
 # Build ffmpeg to wasm
 ```
