@@ -1,0 +1,181 @@
+<html>
+<p>test</p>
+
+<input id="file-input" type="file" />
+<br>
+<label for="option_width" >Size:</label>
+<input type="text" id="option_width" value="640"/> &times;
+
+<input type="text" id="option_height" value="480"/>
+<br>
+<!-- <button id="button_start"  >Start streaming</button> -->
+<!-- <button id="button_stop"  >Stop streaming</button> -->
+<div>
+	<p id="output_message"></p>
+	
+	<!-- <video id="output_video" autoplay=true></video> -->
+<!-- <video class="real1" autoplay controls></video> -->
+<!-- <video class="real2" controls></video> -->
+</div>
+</html>
+
+<script>
+const constraints = {video: true};
+
+const video1 = document.querySelector('.real1');
+const video2 = document.querySelector('.real2');
+
+var blobList = [];
+
+var gCurrentTime = 0;
+var mediaRecorder;
+var streamother;
+var state;
+var	height=option_height.value;
+var	width=option_width.value;
+var button_start=document.getElementById('button_start');
+var button_stop=document.getElementById('button_stop');
+<!-- button_start.onclick=requestMedia; -->
+<!-- button_stop.onclick=requestMedia; -->
+
+
+<!-- var saveByteArray = (function () { -->
+    <!-- var a = document.createElement("a"); -->
+    <!-- document.body.appendChild(a); -->
+    <!-- a.style = "display: none"; -->
+    <!-- return function (data, name) { -->
+        <!-- var blob = new Blob(data, {type: "octet/stream"}), -->
+            <!-- url = window.URL.createObjectURL(blob); -->
+        <!-- a.href = url; -->
+        <!-- a.download = name; -->
+        <!-- a.click(); -->
+        <!-- window.URL.revokeObjectURL(url); -->
+    <!-- }; -->
+<!-- }()); -->
+
+<!-- function playNew(){ -->
+	<!-- gCurrentTime = video2.currentTime; -->
+	<!-- var thisBlob = new Blob(blobList,{type:"video/webm"}); -->
+	<!-- var url = URL.createObjectURL(thisBlob); -->
+	<!-- video2.src = url; -->
+	<!-- video2.currentTime = gCurrentTime; -->
+	<!-- video2.play(); -->
+<!-- } -->
+<!-- video2.onended = playNew; -->
+
+
+<!-- var isFirst = true; -->
+<!-- function handleSuccess(stream) { -->
+  <!-- video1.srcObject = stream; -->
+  <!-- var mediaRecorder = new MediaRecorder(stream,{mimeType:"video/webm"}); -->
+  <!-- mediaRecorder.ondataavailable = function(e){ -->
+	<!-- blobList.push(e.data); -->
+
+	<!-- if (isFirst){ -->
+		<!-- playNew(); -->
+		<!-- isFirst = false; -->
+
+	<!-- } -->
+					 <!-- var fileReader = new FileReader(); -->
+				 <!-- fileReader.onloadend = () => { -->
+				<!-- arrayBuffer = fileReader.result; -->
+				<!-- console.log(arrayBuffer) -->
+				
+			//	saveByteArray([arrayBuffer], '123.mpeg');
+				<!-- } -->
+		<!-- let test =[]; -->
+
+		<!-- for(var variable in blobList) { -->
+			<!-- console.log(blobList[variable]) -->
+		<!-- } -->
+        <!-- fileReader.readAsArrayBuffer(e.data); -->
+			
+			<!-- console.log(blobList) -->
+  <!-- } -->
+  <!-- mediaRecorder.start(1000); -->
+<!-- } -->
+
+<!-- function handleError(error) { -->
+  <!-- console.error('Reeeejected!', error); -->
+<!-- } -->
+<!-- navigator.mediaDevices.getUserMedia(constraints). -->
+  <!-- then(handleSuccess).catch(handleError); -->
+<!-- function stropMedia() -->
+<!-- { -->
+	<!-- mediaRecorder.stop(); -->
+	<!-- state = false; -->
+<!-- } -->
+<!-- function requestMedia(){ -->
+	<!-- state = true; -->
+	<!-- var constraints = { audio: true, -->
+		<!-- video:{ -->
+	        <!-- width: { min: width, ideal: width, max: width }, -->
+	        <!-- height: { min: height, ideal: height, max: height }, -->
+	    <!-- } -->
+	<!-- }; -->
+	<!-- navigator.mediaDevices.getUserMedia(constraints).then(function(stream) { -->
+		<!-- video_show(stream);//only show locally, not remotely -->
+		<!-- streamother=stream -->
+
+		<!-- mediaRecorder = new MediaRecorder(stream); -->
+		<!-- mediaRecorder.start(0); -->
+
+		<!-- mediaRecorder.onstop = function(e) { -->
+			<!-- stream.stop(); -->
+				
+		<!-- } -->
+		<!-- var sourceBuffer; -->
+
+
+		// sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="vorbis,vp8"');
+		//document.getElementById('button_start').disabled=false;　
+		<!-- let data = []; -->
+					<!-- let fileReader = new FileReader(); -->
+				<!-- let arrayBuffer; -->
+				 <!-- let blob; -->
+				 <!-- fileReader.onloadend = () => { -->
+				<!-- arrayBuffer = fileReader.result; -->
+				<!-- console.log(arrayBuffer) -->
+
+				<!-- } -->
+		<!-- mediaRecorder.ondataavailable = function(e) { -->
+		 <!-- var reader = new FileReader(); -->
+        <!-- reader.addEventListener("loadend", function () { -->
+            <!-- var arr = new Uint8Array(reader.result); -->
+            <!-- sourceBuffer.appendBuffer(arr); -->
+        <!-- }); -->
+        <!-- reader.readAsArrayBuffer(e.data); -->
+		//worker.postMessage(e.data);
+		<!-- } -->
+				
+//console.log(.data)
+		  //chunks.push(e.data);
+		
+	<!-- }).catch(function(err) { -->
+		<!-- console.log('The following error occured: ' + err); -->
+
+	<!-- }); -->
+<!-- } -->
+<!-- function video_show(stream){ -->
+	<!-- if ("srcObject" in output_video) { -->
+		<!-- output_video.srcObject = stream; -->
+	<!-- } else { -->
+		<!-- output_video.src = window.URL.createObjectURL(stream); -->
+	<!-- } -->
+  <!-- output_video.addEventListener( "loadedmetadata", function (e) { -->
+	<!-- output_message.innerHTML="Local video source size:"+output_video.videoWidth+"x"+output_video.videoHeight; -->
+<!-- }, false ); -->
+<!-- } -->
+
+var worker = new Worker('worker.js');
+var inputElement = document.getElementById("file-input");
+inputElement.addEventListener("change", handleFiles, false);
+function handleFiles() {
+var fileList = this.files; 
+console.log(fileList)
+worker.postMessage(fileList);
+}
+//worker.postMessage("SampleVideo_1280x720_1mb.mp4");
+//worker.postMessage({'cmd': 'start', 'msg': 'Hi'});
+//worker.postMessage('/SampleVideo_1280x720_1mb.mp4');
+</script>
