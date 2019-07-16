@@ -6,8 +6,8 @@
 
 [ffmpeg](https://github.com/FFmpeg/FFmpeg.git)
 # script
+now version build
 ```
-此版本編譯為
 CPPFLAGS="-D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600" \
 emconfigure ./configure --cc="emcc" \
 --prefix=$(pwd)/../dist --enable-cross-compile --target-os=none --arch=x86_64 \
