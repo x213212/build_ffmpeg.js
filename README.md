@@ -1,11 +1,11 @@
 ![](https://i.imgur.com/yUFRvAE.png)
 ![](https://i.imgur.com/7oeSCLz.png)
-# version
+# Version
 * emcc v1.38.38
-* ffmpeg latest version
+* [ffmpeg](https://github.com/FFmpeg/FFmpeg.git) latest version
 
-[ffmpeg](https://github.com/FFmpeg/FFmpeg.git)
-# script
+
+# Compile Script
 now version build
 ```
 CPPFLAGS="-D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600" \
@@ -27,7 +27,7 @@ emcc -s ASSERTIONS=1 -s VERBOSE=1 -s TOTAL_MEMORY=33554432 \
 make 
 ```
 
-# Build ffmpeg to wasm
+# Build FFmpeg to WebAssmbly
 ```
 git clone https://github.com/juj/emsdk && cd emsdk 
 ./emsdk install sdk-incoming-64bit binaryen-master-64bit 
@@ -57,7 +57,7 @@ emconfigure ./configure --cc="emcc" \
 ```
 https://blog.csdn.net/xueyushenzhou/article/details/82856860
 
-# centos 7 gcc upgrade 7.2
+# centos 7 gcc Upgrade 7.2
 https://www.booolen.com/post/20190403_centos%E4%B8%8Bglibcxx_3.4.20%E7%9A%84%E9%97%AE%E9%A2%98/
 ![](https://i.imgur.com/tqEsrsg.png)
 
@@ -65,7 +65,7 @@ install too long...
 
 ![](https://i.imgur.com/UcaTiCE.png)
 
-# centos 7 change gcc version
+# centos 7 Change gcc Version
 https://www.cnblogs.com/dj0325/p/8481092.html
 ```bash
 scl --list
@@ -80,7 +80,7 @@ scl enable devtoolset-7 bash
 ```
 ![](https://i.imgur.com/ImDzjy5.png)
 
-# install cmake
+# Install Cmake
 cmake 3.43 or higher version required.
 https://blog.csdn.net/cloudeagle_bupt/article/details/82498255
 http://jotmynotes.blogspot.com/2016/10/updating-cmake-from-2811-to-362-or.html
@@ -138,7 +138,7 @@ emcc ffmpeg.bc -o ffmpeg.html -s TOTAL_MEMORY=33554432
 
 ![](https://i.imgur.com/q33aM2N.png)
 
-#Open chrome experimental wasm
+# Open Chrome Experimental WebAssmbly
 ![](https://i.imgur.com/gKKTZ0g.png)
 
 add some html
