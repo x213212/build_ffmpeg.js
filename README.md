@@ -22,10 +22,10 @@ emconfigure ./configure --cc="emcc" \
 emcc -s ASSERTIONS=1 -s VERBOSE=1 -s TOTAL_MEMORY=33554432 \
 -s ALLOW_MEMORY_GROWTH=1 -s WASM=1 -O2 -v ffmpeg.bc \
 -o ../ffmpeg.js --pre-js ./pre.js --post-js ./post.js
+
+# Compile
+make 
 ```
-
-
-
 
 # Build ffmpeg to wasm
 ```
@@ -34,7 +34,6 @@ git clone https://github.com/juj/emsdk && cd emsdk
 ./emsdk activate sdk-incoming-64bit binaryen-master-64bit
 . ./emsdk_env.sh
 ```
-
 
 https://trac.ffmpeg.org/wiki/CompilationGuide/Centos
 
@@ -58,9 +57,8 @@ emconfigure ./configure --cc="emcc" \
 ```
 https://blog.csdn.net/xueyushenzhou/article/details/82856860
 
-# centos 7 gcc upgrade
+# centos 7 gcc upgrade 7.2
 https://www.booolen.com/post/20190403_centos%E4%B8%8Bglibcxx_3.4.20%E7%9A%84%E9%97%AE%E9%A2%98/
-請按照他的版本完成升級到 7.2
 ![](https://i.imgur.com/tqEsrsg.png)
 
 install too long...
@@ -75,20 +73,23 @@ scl enable devtoolset-7 bash
 ```
 ![](https://i.imgur.com/ktlrnBU.png)
 
-
-
 ```bash
 [root@localhost lib64]# mv libstdc++.so.6 libstdc++.so.6bck
 [root@localhost lib64]# ln -s libstdc++.so.6.0.24 libstdc++.so.6
 [root@localhost lib64]# strings /usr/lib64/libstdc++.so.6 | grep GLIBC
-
 ```
 ![](https://i.imgur.com/ImDzjy5.png)
-重新指向
-nice
 
-# ffmpeg.js
-經過18小時第一個 編譯終於要開始了....
+# install cmake
+cmake 3.43 or higher version required.
+https://blog.csdn.net/cloudeagle_bupt/article/details/82498255
+http://jotmynotes.blogspot.com/2016/10/updating-cmake-from-2811-to-362-or.html
+![](https://i.imgur.com/cTcyy03.png)
+
+![](https://i.imgur.com/8IrNTVp.png)
+
+
+# Start Compile ffmpeg  LLVM bitcode
 
 ![](https://i.imgur.com/C5t0IRP.png)
 
@@ -100,8 +101,11 @@ make
 在下一個指令!!!!!!!!!!!!!!!
 ![](https://i.imgur.com/4iGe0Mz.png)
 
-~
+
 ![](https://i.imgur.com/w13jDtO.png)
+```bash
+file ffmpeg_g 
+```
 ![](https://i.imgur.com/Colvmec.png)
 
 https://github.com/disoul/videoconverter.js/blob/master/build/ffmpeg_pre.js
@@ -137,7 +141,7 @@ emcc ffmpeg.bc -o ffmpeg.html -s TOTAL_MEMORY=33554432
 
 ![](https://i.imgur.com/q33aM2N.png)
 
-#開啟chrome 實驗wasm
+#Open chrome experimental wasm
 ![](https://i.imgur.com/gKKTZ0g.png)
 
 add some html
