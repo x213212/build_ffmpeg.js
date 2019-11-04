@@ -95,13 +95,12 @@ http://jotmynotes.blogspot.com/2016/10/updating-cmake-from-2811-to-362-or.html
 
 ![](https://i.imgur.com/iQGuhnT.png)
 
+![](https://i.imgur.com/4iGe0Mz.png)
+
 ```bash
 make
 ```
-在下一個指令!!!!!!!!!!!!!!!
-![](https://i.imgur.com/4iGe0Mz.png)
-
-
+possibley get error but It's ok
 ![](https://i.imgur.com/w13jDtO.png)
 ```bash
 file ffmpeg_g 
