@@ -107,8 +107,6 @@ file ffmpeg_g
 ```
 ![](https://i.imgur.com/Colvmec.png)
 
-https://github.com/disoul/videoconverter.js/blob/master/build/ffmpeg_pre.js
-https://github.com/disoul/videoconverter.js/blob/master/build/ffmpeg_post.js
 这里放出我最终自己使用pre.js和post.js代码
 
 https://github.com/disoul/videoconverter.js/blob/master/build/ffmpeg_pre.js
