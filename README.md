@@ -23,6 +23,8 @@ emcc -s ASSERTIONS=1 -s VERBOSE=1 -s TOTAL_MEMORY=33554432 \
 -s ALLOW_MEMORY_GROWTH=1 -s WASM=1 -O2 -v ffmpeg.bc \
 -o ../ffmpeg.js --pre-js ./pre.js --post-js ./post.js
 
+emcc  -s ASSERTIONS=1 -s VERBOSE=1 -s TOTAL_MEMORY=33554432 -s EMTERPRETIFY_WHITELIST='["_main","_ffmpeg_parse_options","_open_files","_open_input_file","_avformat_open_input","_ff_id3v2_read","_id3v2_read_internal","_avio_read","_fill_buffer","_io_read_packet","_ffurl_read","_file_read","_avformat_find_stream_info","_read_frame_internal","_ff_read_packet","_rawvideo_read_packet","_av_get_packet","_append_packet_chunked","_transcode","_av_read_frame"]'  -s EMTERPRETIFY_ASYNC=1  -s BINARYEN_TRAP_MODE=js -s EMTERPRETIFY=1  -s ALLOW_MEMORY_GROWTH=1 -s WASM=1 --js-library ./library.js -O3 -v ffmpeg.bc -o ./ffmpeg.js --pre-js ./ffmpeg_pre.js --post-js ./ffmpeg_worker.js 
+
 # Compile
 make 
 ```
