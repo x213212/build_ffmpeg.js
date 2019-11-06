@@ -8,6 +8,10 @@
 # Compile Script
 now version build
 ```
+##
+#JavaScript heap out of memory
+--enable-small  \
+
 CPPFLAGS="-D_POSIX_C_SOURCE=200112 -D_XOPEN_SOURCE=600" \
 emconfigure ./configure --cc="emcc" \
 --prefix=$(pwd)/../dist --enable-cross-compile --target-os=none --arch=x86_64 \
@@ -27,6 +31,9 @@ emcc  -s ASSERTIONS=1 -s VERBOSE=1 -s TOTAL_MEMORY=33554432 -s EMTERPRETIFY_WHIT
 
 # Compile
 make 
+
+#
+
 ```
 
 # Build FFmpeg to WebAssmbly
