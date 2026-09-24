@@ -1,3 +1,5 @@
+
+
 # build_ffmpeg.js
 
 Build scripts and a worker harness for compiling **FFmpeg to WebAssembly**, so a
@@ -85,7 +87,7 @@ function on that call chain has to be listed for Emterpreter so it can be
 suspended and resumed when data is not yet available. Miss one and the page
 hangs instead of erroring.
 
-Then:
+Before running the link commands above, build the configured FFmpeg sources with:
 
 ```bash
 make
